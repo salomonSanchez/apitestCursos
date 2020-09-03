@@ -2,6 +2,8 @@ var express = require('express');
 var json2xml = require("json2xml");
 const e = require('express');
 var router = express.Router();
+var cachecontrol = require('express-cache-control')
+var cache = new cachecontrol().middleware
 
 const cursos = [{
         id: 1,
@@ -32,7 +34,7 @@ const cursos = [{
     },
 ];
 
-router.get('/', function(request, response) {
+router.get('/', cache('minutes', 60), function(request, response) {
     var data = {
         items: cursos
     };
@@ -41,7 +43,7 @@ router.get('/', function(request, response) {
     response.send(xml_cursos);
 });
 
-router.get('/', function(request, response) {
+router.get('/', cache('minutes', 60), function(request, response) {
     //response.send(catalog);
     response.json(cursos);
 });
@@ -69,7 +71,7 @@ router.get('/course/:courseid/student/', function(request, response) {
     response.json(student);
 });
 
-router.get('/course/:courseid/student/:studentid', function(request, response) {
+router.get('/course/:courseid/student/:studentid', cache('minutes', 60), function(request, response) {
     const course_id = request.params.courseid;
     const studentid = request.params.studentid;
     var course = cursos.find(item => item.id == course_id);

@@ -1,7 +1,8 @@
 var express = require('express');
 var json2xml = require("json2xml");
 var router = express.Router();
-
+var cachecontrol = require('express-cache-control')
+var cache = new cachecontrol().middleware
 const catalog = [
     { id: 1, name: 'Samsung J1', price: 400.00 },
     { id: 2, name: 'Hawei PSmart', price: 800.00 },
@@ -9,7 +10,7 @@ const catalog = [
     { id: 4, name: 'Iphone X', price: 1200.00 },
 ];
 
-router.get('/', function(request, response) {
+router.get('/', cache('minutes', 60), function(request, response) {
     var data = {
         items: catalog,
         total: 100,
