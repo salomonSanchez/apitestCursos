@@ -43,11 +43,6 @@ router.get('/', cache('minutes', 60), function(request, response) {
     response.send(xml_cursos);
 });
 
-router.get('/', cache('minutes', 60), function(request, response) {
-    //response.send(catalog);
-    response.json(cursos);
-});
-
 router.get('/:curso_id', function(request, response) {
     const curso_id = request.params.curso_id;
     var product = cursos.find(item => item.id == curso_id);

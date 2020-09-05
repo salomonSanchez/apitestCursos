@@ -1,0 +1,30 @@
+{
+    "cursos": [{
+            "id": 1,
+            "name": "integracion",
+            "alumnos": [
+                { "id": 20, "nombre": "marco", "apellido": "lopez", "nota": 10 },
+                { "id": 21, "nombre": "paola", "apellido": "borja", "nota": 10 },
+                { "id": 22, "nombre": "manuel", "apellido": "alejandro", "nota": 10 }
+            ]
+        },
+        {
+            "id": 2,
+            "name": "investigacion II",
+            "alumnos": [
+                { "id": 20, "nombre": "marco", "apellido": "lopez", "nota": 10 },
+                { "id": 21, "nombre": "paola", "apellido": "borja", "nota": 10 },
+                { "id": 22, "nombre": "manuel", "apellido": "alejandro", "nota": 10 }
+            ]
+        },
+        {
+            "id": 3,
+            "name": "TI",
+            "alumnos": [
+                { "id": 20, "nombre": "marco", "apellido": "lopez", "nota": 10 },
+                { "id": 21, "nombre": "paola", "apellido": "borja", "nota": 10 },
+                { "id": 22, "nombre": "manuel", "apellido": "alejandro", "nota": 10 }
+            ]
+        }
+    ]
+}
